@@ -4,7 +4,7 @@ const dotenv=require('dotenv');
 const cors=require('cors')
 app.use(cors());
 dotenv.config();
-const PORT=8051 || process.env.PORT ;
+const PORT=process.env.PORT || 8051;
 
 app.get('/blog',async(req,res)=>{
      try{
@@ -18,7 +18,7 @@ app.get('/blog',async(req,res)=>{
           
      }
 })
-app.get('*',(req,res)=>{
+app.get('/',(req,res)=>{
      res.send({message:'invalid request'})
 })
 app.listen(PORT,()=>{
